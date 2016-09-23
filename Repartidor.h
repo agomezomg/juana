@@ -12,7 +12,7 @@ private:
 	string difficulty;
 	double moneyGiven;
 	Baraja* baraja;
-	vector<Carta*> Mano;
+	vector<Carta*> hand;
 	int gameCount;
 
 public:
