@@ -10,7 +10,7 @@ Administrador::Administrador() {
 	
 }
 
-Administrador::Administrador(string name, int edad, string ID, int experienciaLaboral, string rangoAspira, double sueldo) : Persona(name, edad, ID),
+Administrador::Administrador(string name, int age, string ID, int experienciaLaboral, string rangoAspira, double sueldo) : Persona(name, age, ID),
 experienciaLaboral(experienciaLaboral), rangoAspira(rangoAspira), sueldo(sueldo) {
 
 }
