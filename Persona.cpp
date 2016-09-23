@@ -33,12 +33,24 @@ Persona::~Persona() {
 
 }
 
-void Persona::getName(string name) {
+string Persona::getName() {
+	return this -> name;
+}
+
+void Persona::setName(string name) {
 	this -> name = name;
 }
 
-void Persona::getAge(int age) {
+int Persona::getAge() {
+	return this -> age;
+}
+
+void Persona::setAge(int age) {
 	this -> age = age;
+}
+
+string Persona::getID() {
+	return this -> ID;
 }
 
 void Persona::setID(string ID) {
@@ -51,8 +63,8 @@ void Persona::setID(string ID) {
 	}
 }
 
-string toString() {
+string Persona::toString() {
 	stringstream ss;
-	ss << "Nombre: " << name << "\n" << "Edad: " << edad << "\n" << "ID: " << ID << "\n";
+	ss << "Nombre: " << name << "\n" << "Edad: " << age << "\n" << "ID: " << ID << "\n";
 	return ss.str();
 }

@@ -6,13 +6,16 @@ using std::string;
 class Carta
 {
 private:
-	int value;
+	char num;
 	string symbol;
-	string color;
+	string colour;
 
 public:
 	Carta();
 	Carta(string, int, string);
 	~Carta();
-	
+	char getNum();
+	void setNum(char);
+	void setSymbol();
+	void setColour();
 };

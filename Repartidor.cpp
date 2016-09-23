@@ -10,7 +10,7 @@ using std::vector;
 using std::string;
 using std::stringstream;
 
-Repartidor::Repartidor(string name, string age, string ID, string difficulty, int gameCount, int maxAmount) : Persona(name, age, ID),
+Repartidor::Repartidor(string name, int age, string ID, string difficulty, int gameCount, int maxAmount) : Persona(name, age, ID),
 difficulty(difficulty), gameCount(gameCount), maxAmount(maxAmount) {
 	this -> hand = new Baraja();
 }
@@ -21,6 +21,10 @@ Repartidor::~Repartidor(){
 
 void Repartidor::setDifficulty(string difficulty){
 	this -> difficulty =difficulty;
+}
+
+int Repartidor::getGameCount() {
+	return this -> gameCount;
 }
 
 void Repartidor::setGameCount(int gameCount){

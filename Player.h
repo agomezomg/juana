@@ -3,7 +3,7 @@
 #include "Baraja.h"
 #include "Carta.h"
 #include <string>
-#include <vector>;
+#include <vector>
 
 using std::string;
 using std::vector;
@@ -24,5 +24,5 @@ public:
 	void setNickname(string);
 	double setDasGeld(double);
 	int calcHand();
-	
+
 };

@@ -42,7 +42,7 @@ Baraja::Baraja() {
 			}else{
 				value = j;
 			}
-			this->baraja.push_back(new Carta(symbol, value, Color));
+			this->baraja.push_back(new Carta(symbol, value, colour));
 		}
 	}
 }

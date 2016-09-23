@@ -15,15 +15,17 @@ private:
 	int maxAmount;
 	Baraja* baraja;
 	vector<Carta*> hand;
-	int gameCount;
 
 public:
 	Repartidor();
+	Repartidor(string, int, string, string, int, int string);
 	~Repartidor();
 	void setDifficulty(string);
+	double getMoneyGiven();
 	void setMoneyGiven(double);
+	int getGameCount();
 	void setGameCount(int);
 	int calcHand();
 	string toString();
-	
+	Carta* Repartir();
 };
