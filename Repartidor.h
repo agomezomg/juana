@@ -11,6 +11,8 @@ class Repartidor : public Persona
 private:
 	string difficulty;
 	double moneyGiven;
+	int gameCount;
+	int maxAmount;
 	Baraja* baraja;
 	vector<Carta*> hand;
 	int gameCount;
@@ -18,5 +20,10 @@ private:
 public:
 	Repartidor();
 	~Repartidor();
+	void setDifficulty(string);
+	void setMoneyGiven(double);
+	void setGameCount(int);
+	int calcHand();
+	string toString();
 	
 };

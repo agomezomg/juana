@@ -1,12 +1,13 @@
-#include <string>
-#include <vector>
 #include "Baraja.h"
 #include "Repartidor.h"
+#include <string>
+#include <vector>
 #include <time.h>
 #include <stdlib.h>
-using std::string;
-using namespace std;
 #include <sstream>
+
+using std::vector;
+using std::string;
 using std::stringstream;
 
 Repartidor::Repartidor(string name, string age, string ID, string difficulty, int gameCount, int maxAmount) : Persona(name, age, ID),
@@ -32,7 +33,7 @@ void Repartidor::setMaxAmount(int maxAmount){
 
 string Repartidor::toString(){
 	stringstream ss;
-	ss<<Persona::toString()<<"Dificultad: " << difficulty <<" Juegos: " << gameCount <<" Monto Maximo: " << maxAmount;
+	ss << Persona::toString()<< "Dificultad: " << difficulty << "\nJuegos: " << gameCount <<"\nMonto Maximo: " << maxAmount << "\n";
 	return ss.str();
 }
 
@@ -40,25 +41,15 @@ void Repartidor::setHand(Carta* card){
  	this -> hand.push_back(card);
 }
 
-string Repartidor::seeHand(){
-	stringstream ss;
-	for (int i = 0; i < this -> Mano.size(); ++i)
-	{
-		ss << this -> Mano.at(i) -> toString() << "\n";
-	}
-	
-	return ss.str();
-}
-
-int Repartidor::CalcularMano(){
-	int total = 0, Temporal = 0;
-	for (int i = 0; i <this->Mano.size() ; ++i) {
-		if (Mano.at(i)->getNumero()==74) {
-			Temporal=10;
-		} else if(hand.at(i)->getNumero()==75) {
-			Temporal=10;
-		} else if(hand.at(i)->getNumero()==81) {
-			Temporal=10;
+int Repartidor::CalcHand(){
+	int total = 0, temp = 0;
+	for (int i = 0; i < this -> hand.size() ; ++i) {
+		if (hand.at(i) -> getNum() == 74) {
+			temp = 10;
+		} else if(hand.at(i) -> getNum() == 75) {
+			temp = 10;
+		} else if(hand.at(i) -> getNum() == 81) {
+			temp = 10;
 		} else if(hand.at(i)->getNumero()==65) {
 			temp = 11;
 		} else {
@@ -95,15 +86,22 @@ int Repartidor::CalcHand(int SobreCarga){
 		
 	}
 	return total;
-
 }
 
-
 Carta* Repartidor::Repartir(){
-	return BarajaTexas->getCarta();
+	return this -> baraja -> getCarta();
 
 }
 
 void Repartidor::setBaraja(){
-	this->BarajaTexas=new Baraja();
+	this -> baraja = new Baraja();
+}
+
+string Repartidor::toString(){
+	stringstream ss;
+	for (int i = 0; i < this -> hand.size(); ++i)
+	{
+		ss << this -> hand.at(i) -> toString() << "\n";
+	}
+	return ss.str();
 }
