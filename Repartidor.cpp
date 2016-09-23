@@ -63,29 +63,6 @@ int Repartidor::CalcHand(){
 		hand.pop_back();
 	}
 	return total;
-
-}
-
-int Repartidor::CalcHand(int SobreCarga){
-	int total = 0, temp = 0;
-	for (int i = 0; i < this -> hand.size() ; ++i)
-	{
-		if (hand.at(i) -> getNumero() == 74)
-		{
-			temp = 10;
-		} else if(hand.at(i) -> getNumero() == 75) {
-			temp = 10;
-		} else if(hand.at(i) -> getNumero() == 81) {
-			temp = 10;
-		} else if(hand.at(i) -> getNumero() == 65) {
-			temp = 11;
-		} else {
-			temp = hand.at(i) -> getNumero();
-		}
-		total += temp;
-		
-	}
-	return total;
 }
 
 Carta* Repartidor::Repartir(){

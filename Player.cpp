@@ -30,11 +30,40 @@ void Player::setNickname(string nickname) {
 }
 
 void Player::setDasGeld(double dasGeld) {
-	this -> dasGeld = dasGeld;
+	this -> dasGeld += dasGeld;
 }
 
 string Player::toString() {
 	stringstream ss;
 	ss << Player::toString() << "Procedencia: " << origin << "\n" << "Apodo: " << nickname << "\n" << "Dinero: " << dasGeld << "\n";
 	return ss.str();
+}
+
+void Repartidor::setHand(Carta* card){
+ 	this -> hand.push_back(card);
+}
+
+int Player::CalcHand(){
+	int total = 0, temp = 0;
+	for (int i = 0; i < this -> hand.size() ; ++i) {
+		if (hand.at(i) -> getNum() == 74) {
+			temp = 10;
+		} else if(hand.at(i) -> getNum() == 75) {
+			temp = 10;
+		} else if(hand.at(i) -> getNum() == 81) {
+			temp = 10;
+		} else if(hand.at(i)->getNumero()==65) {
+			temp = 11;
+		} else {
+			temp = hand.at(i)->getNumero();
+		}
+		total += temp;
+	}
+
+	for (int i = 0; i < hand.size() + 3 ; ++i)
+	{
+		hand.pop_back();
+	}
+
+	return total;
 }

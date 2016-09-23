@@ -21,5 +21,6 @@ public:
 	void setRepartidor(Repartidor*);
 	void setPlayer(Player*);
 	void setTableNum(int);
-	void setType(string);	
+	void setType(string);
+	string toString();
 };
