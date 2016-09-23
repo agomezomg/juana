@@ -25,7 +25,12 @@ public:
 	void setMoneyGiven(double);
 	int getGameCount();
 	void setGameCount(int);
-	int calcHand();
+	int CalcHand();
+	int getMaxAmount();
 	string toString();
+	void setHand(Carta*);
 	Carta* Repartir();
+	void setBaraja();
+	void setMaxAmount(int);
+	string seeCards();
 };

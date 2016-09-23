@@ -12,8 +12,9 @@ Mesa::Mesa() {
 
 }
 
-Mesa::Mesa(Repartidor* repartidor, Player* jugador, int tableNum, string type) : repartidor(repartidor), jugador(jugador), tableNum(tableNum), type(type) {
-
+Mesa::Mesa(Repartidor* repartidor, Player* jugador, int tableNum, string type) : tableNum(tableNum), type(type) {
+	this -> repartidor = repartidor;
+	this -> jugador = jugador;
 }
 
 Mesa::~Mesa() {
@@ -38,6 +39,9 @@ void Mesa::setType(string type) {
 
 string Mesa::toString() {
 	stringstream ss;
-	ss << "Repartidor: " << repartidor -> getName() << ", Jugador: " << jugador -> getName() << ", Numero: " << tableNum << ", Tipo: " << type "\n";
+	ss << "Repartidor: " << (repartidor -> getName());
+	ss << ", Jugador: " << (jugador -> getName());
+	ss << ", Numero: " << tableNum;
+	ss << ", Tipo: " << type << "\n";
 	return ss.str();
 }

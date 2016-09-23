@@ -14,15 +14,18 @@ private:
 	string origin;
 	string nickname;
 	double dasGeld;
-	vector<Carta*> hands;
+	vector<Carta*> hand;
 
 public:
 	Player();
 	Player(string, int, string, string, string, double);
 	~Player();
+	//string getOrigin();
 	void setOrigin(string);
+	//string getNickname();
 	void setNickname(string);
-	double setDasGeld(double);
-	int calcHand();
-
+	void setDasGeld(double);
+	int CalcHand();
+	string toString();
+	void setHand(Carta*);
 };

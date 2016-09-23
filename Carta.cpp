@@ -2,6 +2,7 @@
 #include <sstream>
 #include <string>
 
+using std::stringstream;
 using std::string;
 
 Carta::Carta(string symbol,int num,string colour) : symbol(symbol), num(num), colour(colour){

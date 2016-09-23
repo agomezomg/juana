@@ -13,7 +13,7 @@ Player::Player() {
 }
 
 Player::Player(string name, int age, string ID, string origin, string nickname, double dasGeld) : Persona(name, age, ID),
-name(name), age(age),  ID(ID){
+origin(origin), nickname(nickname),  dasGeld(dasGeld){
 
 }
 
@@ -39,7 +39,7 @@ string Player::toString() {
 	return ss.str();
 }
 
-void Repartidor::setHand(Carta* card){
+void Player::setHand(Carta* card){
  	this -> hand.push_back(card);
 }
 
@@ -52,10 +52,8 @@ int Player::CalcHand(){
 			temp = 10;
 		} else if(hand.at(i) -> getNum() == 81) {
 			temp = 10;
-		} else if(hand.at(i)->getNumero()==65) {
+		} else if(hand.at(i) -> getNum() == 65) {
 			temp = 11;
-		} else {
-			temp = hand.at(i)->getNumero();
 		}
 		total += temp;
 	}

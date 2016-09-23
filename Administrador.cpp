@@ -15,6 +15,10 @@ experienciaLaboral(experienciaLaboral), rangoAspira(rangoAspira), sueldo(sueldo)
 
 }
 
+Administrador::~Administrador() {
+	
+}
+
 void Administrador::setExperienciaLaboral(int experienciaLaboral) {
 	this -> experienciaLaboral = experienciaLaboral;
 }

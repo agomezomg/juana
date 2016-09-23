@@ -16,6 +16,7 @@ private:
 
 public:
 	Mesa();
+	Mesa(int, string);
 	Mesa(Repartidor*, Player*, int, string);
 	~Mesa();
 	void setRepartidor(Repartidor*);

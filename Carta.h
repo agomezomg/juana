@@ -6,7 +6,7 @@ using std::string;
 class Carta
 {
 private:
-	char num;
+	int num;
 	string symbol;
 	string colour;
 
@@ -14,8 +14,10 @@ public:
 	Carta();
 	Carta(string, int, string);
 	~Carta();
-	char getNum();
-	void setNum(char);
-	void setSymbol();
-	void setColour();
+	int getNum();
+	string getSymbol();
+	void setSymbol(string);
+	string getColour();
+	void setColour(string);
+	string toString();
 };

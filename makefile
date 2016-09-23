@@ -1,5 +1,5 @@
-Casino:	Main.o Persona.o Baraja.o Carta.o Repartidor.o Administrador.o Player.o 
-	g++ Main.o Persona.o Baraja.o Carta.o Repartidor.o Administrador.o Player.o -lncurses -o Casino
+Casino:	Main.o Persona.o Baraja.o Carta.o Repartidor.o Administrador.o Player.o Mesa.o
+	g++ Main.o Persona.o Baraja.o Carta.o Repartidor.o Administrador.o Player.o Mesa.o -o Casino
 
 Main.o:	Main.cpp Persona.h Baraja.h Carta.h Repartidor.h Administrador.h Player.h 
 	g++ -c Main.cpp
@@ -21,6 +21,9 @@ Baraja.o:	Baraja.h Baraja.cpp
 
 Carta.o:	Carta.h Carta.cpp
 	g++ -c Carta.cpp
+
+Mesa.o:	Mesa.h Mesa.cpp	Persona.h Player.h Repartidor.h
+	g++ -c Mesa.cpp
 
 clean:
 	rm -f *.o Casino

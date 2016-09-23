@@ -10,9 +10,13 @@ using std::vector;
 using std::string;
 using std::stringstream;
 
+Repartidor::Repartidor() {
+	
+}
+
 Repartidor::Repartidor(string name, int age, string ID, string difficulty, int gameCount, int maxAmount) : Persona(name, age, ID),
 difficulty(difficulty), gameCount(gameCount), maxAmount(maxAmount) {
-	this -> hand = new Baraja();
+	this -> baraja = new Baraja();
 }
 
 Repartidor::~Repartidor(){
@@ -54,10 +58,10 @@ int Repartidor::CalcHand(){
 			temp = 10;
 		} else if(hand.at(i) -> getNum() == 81) {
 			temp = 10;
-		} else if(hand.at(i)->getNumero()==65) {
+		} else if(hand.at(i) -> getNum() == 65) {
 			temp = 11;
 		} else {
-			temp = hand.at(i)->getNumero();
+			temp = hand.at(i) -> getNum();
 		}
 		total += temp;
 		
@@ -78,7 +82,7 @@ void Repartidor::setBaraja(){
 	this -> baraja = new Baraja();
 }
 
-string Repartidor::toString(){
+string Repartidor::seeCards(){
 	stringstream ss;
 	for (int i = 0; i < this -> hand.size(); ++i)
 	{

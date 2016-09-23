@@ -14,6 +14,10 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
+	Jugador* c_player = new Jugador();
+	Administrador* c_admin = new Administrador();
+
+	int createdTables = 0;
 	int iSecret;
 	vector<Persona*>users;
 	vector<Mesa*>mesas;
@@ -21,6 +25,7 @@ int main(int argc, char const *argv[])
 	int reps = 0;
 
 	users.push_back(new Administrador("Ana", 18, "1154", 0, "Nada", 1000000));
+	users.push_back(new Player("Cesar", 18, "0000", "El Reczen", "Cesi", 2000));
 	int op;
 	bool loggedAdmin = false;
 	bool loggedUser = false;
@@ -39,12 +44,18 @@ int main(int argc, char const *argv[])
 			{
 				if (users.at(i) -> getName() == nameLogin && users.at(i) -> getID() == IDlog)
 				{
+					c_admin = dynamic_cast<Administrador*>(users.at(i));
 					loggedAdmin = true;
 				}
-			} else if (dynamic_cast<Player*>(users.at(i))!= NULL)
-			{
+			} else if (dynamic_cast<Player*>(users.at(i)) != NULL)
+			{	
+				if (users.at(i) -> getName() == nameLogin && users.at(i) -> getID() == IDlog)
+				{
+					c_player = dynamic_cast<Player*>(users.at(i));
+					loggedUser = true;
+				}
 				players++;
-			} else if (dynamic_cast<Repartidor*>(users.at(i))!=NULL)
+			} else if (dynamic_cast<Repartidor*>(users.at(i)) != NULL)
 			{
 				reps++;
 			}
@@ -62,8 +73,8 @@ int main(int argc, char const *argv[])
 			{
 				if (players >=1 && reps >= 1)
 				{
-					Repartidor* rep;
-					Player* jug;
+					Repartidor* rep = new Repartidor();
+					Player* jug =  new Player();
 					int positionRep;
 					int positionPlay;
 					cout << "A quien desea agregar como repartidor? \n";
@@ -95,6 +106,8 @@ int main(int argc, char const *argv[])
 					cin >> type;
 
 					mesas.push_back(new Mesa(rep, jug, tablenum, type));
+					createdTables++;
+
 				} else {
 					cout << "No hay suficientes jugadores o repartidores para crear una mesa. \n";
 				}
@@ -168,6 +181,18 @@ int main(int argc, char const *argv[])
 			}else {
 				cout << "Wrong choice m8, soz \n";
 			}
+		} else if (loggedUser)
+		{
+			double cantidadApostar;
+			cout << "Cantidad a APostar: ";
+			cin >> cantidadApostar;
+
+			if (cantidadApostar)
+			{
+				/* code */
+			}
+		} else {
+			cout << "uSTED No ExISTe \n";
 		}
 	} while (op != 0);
 	return 0;
