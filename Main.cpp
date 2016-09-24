@@ -12,6 +12,8 @@
 
 using namespace std;
 
+
+
 int main(int argc, char const *argv[])
 {
 	Player* c_player;
