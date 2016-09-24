@@ -38,6 +38,7 @@ int main(int argc, char const *argv[])
 		cout << "Nombre: \n";
 		cin >> nameLogin;
 		cout << "ID: \n";
+		cin >> IDlog;
 
 		for (int i = 0; i < users.size(); ++i)
 		{
@@ -70,6 +71,8 @@ int main(int argc, char const *argv[])
 			cout << "2. Agregar Jugador \n";
 			cout << "3. Agregar Administrador \n";
 			cout << "4. Agregar Repartidor \n";
+
+			cin >> op;
 
 			if (op == 1)
 			{
