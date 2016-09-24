@@ -20,12 +20,12 @@ public:
 	Player();
 	Player(string, int, string, string, string, double);
 	~Player();
-	//string getOrigin();
 	void setOrigin(string);
-	//string getNickname();
 	void setNickname(string);
+	int getDasGeld();
 	void setDasGeld(double);
 	int CalcHand();
 	string toString();
 	void setHand(Carta*);
+	string seeCards();
 };

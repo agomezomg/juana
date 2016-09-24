@@ -43,6 +43,10 @@ void Player::setHand(Carta* card){
  	this -> hand.push_back(card);
 }
 
+int Player::getDasGeld() {
+	return this -> dasGeld;
+}
+
 int Player::CalcHand(){
 	int total = 0, temp = 0;
 	for (int i = 0; i < this -> hand.size() ; ++i) {
@@ -64,4 +68,13 @@ int Player::CalcHand(){
 	}
 
 	return total;
+}
+
+string Player::seeCards(){
+	stringstream ss;
+	for (int i = 0; i < this -> hand.size(); ++i)
+	{
+		ss << this -> hand.at(i) -> toString() << "\n";
+	}
+	return ss.str();
 }

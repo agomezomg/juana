@@ -14,7 +14,7 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
-	Jugador* c_player = new Jugador();
+	Player* c_player;
 	Administrador* c_admin = new Administrador();
 
 	int createdTables = 0;
@@ -64,6 +64,7 @@ int main(int argc, char const *argv[])
 		if (loggedAdmin)
 		{
 			cout << "Bienvenido! Usted es un administrador. \n";
+			cout << "0 TO EXIT \n";
 			cout << "1. Agregar Mesa \n";
 			cout << "2. Agregar Jugador \n";
 			cout << "3. Agregar Administrador \n";
@@ -111,7 +112,6 @@ int main(int argc, char const *argv[])
 				} else {
 					cout << "No hay suficientes jugadores o repartidores para crear una mesa. \n";
 				}
-				//iSecret = rand() % mesa.size() + 0;
 			} else if (op == 2)
 			{
 				string name;
@@ -184,12 +184,37 @@ int main(int argc, char const *argv[])
 		} else if (loggedUser)
 		{
 			double cantidadApostar;
-			cout << "Cantidad a APostar: ";
+			cout << "Cantidad a Apostar: ";
 			cin >> cantidadApostar;
 
-			if (cantidadApostar)
+			if (cantidadApostar > c_player -> getDasGeld())
 			{
-				/* code */
+				cout << "No puede apostar esa cantidad. \n";
+			} else {
+				int menu = 0;
+				do
+				{
+					cout << "Jugador: " << c_player -> getName();
+					cout << "0 TO EXIT \n";
+					cout << "1. Ver cartas \n";
+					cout << "2. Pedir cartas \n";
+					cout << "3. Mostrar cartas \n";
+
+					cin >> menu;
+
+					if (menu == 1)
+					{
+						cout << c_player -> seeCards();
+					} else if (menu == 2)
+					{
+						c_player -> setHand(c_rep -> Repartir());
+					} else if (menu == 3)
+					{
+
+					} else {
+						cout << "Whoops. try again. lol \n";
+					}
+				} while (menu != 0);
 			}
 		} else {
 			cout << "uSTED No ExISTe \n";
