@@ -16,6 +16,7 @@ int main(int argc, char const *argv[])
 {
 	Player* c_player;
 	Administrador* c_admin = new Administrador();
+	Repartidor* c_rep = new Repartidor();
 
 	int createdTables = 0;
 	int iSecret;
@@ -208,9 +209,18 @@ int main(int argc, char const *argv[])
 					} else if (menu == 2)
 					{
 						c_player -> setHand(c_rep -> Repartir());
+						cout << "Se repartieron cartas \n";
 					} else if (menu == 3)
 					{
-
+						c_player -> seeCards();
+						int Resul1, Resul2;
+						if (c_player -> CalcHand() == 21)
+						{
+							cout << "Ganaste! \n";
+						} else {
+							cout << "Soz you lost. \n";
+							c_player -> setDasGeld(cantidadApostar * -1);
+						}
 					} else {
 						cout << "Whoops. try again. lol \n";
 					}

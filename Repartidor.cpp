@@ -11,7 +11,7 @@ using std::string;
 using std::stringstream;
 
 Repartidor::Repartidor() {
-	
+
 }
 
 Repartidor::Repartidor(string name, int age, string ID, string difficulty, int gameCount, int maxAmount) : Persona(name, age, ID),
@@ -49,7 +49,7 @@ void Repartidor::setHand(Carta* card){
  	this -> hand.push_back(card);
 }
 
-int Repartidor::CalcHand(){
+int Repartidor::CalcHand() {
 	int total = 0, temp = 0;
 	for (int i = 0; i < this -> hand.size() ; ++i) {
 		if (hand.at(i) -> getNum() == 74) {
